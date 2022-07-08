@@ -1,0 +1,39 @@
+{% load static %}
+<section id="team" class="section-padding bg-gray">
+    <div class="container">
+      <div class="section-header text-center">          
+        <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Meet our team</h2>
+        <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
+      </div>
+      <div class="row">
+        {% for f in funcionarios %}
+        <div class="col-lg-6 col-md-12 col-xs-12">
+          <!-- Team Item Starts 2 -->
+          <div class="team-item wow fadeInRight" data-wow-delay="0.6s">
+            <div class="team-img">
+              <img class="img-fluid" src="{{ f.image.thumb.url }}" alt="Imagem do nosso funcionário (a)">
+              {% comment %} 
+              Estamos passando as imagens que criamos assim que fazemos o upload. Lembre que caso as imagens sejam maiores que 480x480
+              nós criamos uma thumb nessa proporção, para que caiba corretamente em nosso template.
+              {% endcomment %}
+            </div>
+            <div class="contetn">
+              <div class="info-text">
+                <h3><a href="#">{{ f.nome }}</a></h3>
+                <p>{{ f.cargo }}</p>
+              </div>
+              <p>{{ f.bio }}</p>
+              <ul class="social-icons">
+                <li><a href="{{ f.facebook }}"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>
+                <li><a href="{{ f.twitter }}"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>
+                <li><a href="{{ f.instagram }}"><i class="lni-instagram-filled" aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- Team Item Ends -->
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </section>
